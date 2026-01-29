@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nano — Инфографика для подростков</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Фон с градиентом и звездами */
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: #001f4d; /* Тёмно-синий фон */
+  color: #ffffff; /* Белый текст для контраста */
+  overflow-x: hidden;
+}
+      a { text-decoration: none; color: inherit; }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Облака */
+    .clouds {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .cloud {
+      position: absolute;
+      background: url('cloud.png') no-repeat;
+      background-size: contain;
+      width: 150px;
+      height: 80px;
+      opacity: 0.7;
+    }
+
+    /* Движение облаков */
+    .cloud1 { top: 10%; left: -200px; animation: floatRight 60s linear infinite; }
+    .cloud2 { top: 30%; left: -300px; animation: floatRight 80s linear infinite; }
+    .cloud3 { top: 50%; left: 100vw; animation: floatLeft 70s linear infinite; }
+    .cloud4 { top: 70%; left: 120vw; animation: floatLeft 90s linear infinite; }
+    .cloud5 { top: 40%; left: -250px; animation: floatRight 100s linear infinite; }
+
+    @keyframes floatRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120vw); }
+    }
+
+    @keyframes floatLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-120vw); }
+    }
+
+    /* Анимация блоков */
+    section, header { opacity: 0; transform: translateY(30px); animation: fadeIn 1s forwards; }
+    header { animation-delay: 0.2s; }
+    section:nth-of-type(1) { animation-delay: 0.4s; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.8s; }
+    section:nth-of-type(4) { animation-delay: 1s; }
+
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+    /* Шапка */
+    header { text-align: center; padding: 60px 20px; }
+    header img.logo { width: 180px; border-radius: 16px; margin-bottom: 20px; }
+    header h1 { font-size: 36px; margin: 10px 0; color: #003366; }
+    header p { font-size: 18px; color: #1f3c88; font-style: italic; }
+
+    /* Блок обо мне */
+    .profile { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; align-items: center; }
+    .profile img { width: 100%; border-radius: 16px; }
+
+    /* Факты / преимущества */
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+    .fact { background: #99ccff; border-radius: 14px; padding: 18px; font-size: 15px; color: #003366; transition: transform 0.3s; }
+    .fact:hover { transform: translateY(-5px); }
+
+    /* Блок обучения */
+    .course-preview img { width: 70%; max-width: 500px; border-radius: 16px; margin-top: 16px; display: block; margin-left: auto; margin-right: auto; }
+
+    /* Кнопка / CTA */
+    .cta { text-align: center; margin-top: 20px; }
+    .cta a {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: #003366;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .cta a:hover { background: #001f4d; }
+
+    /* Подвал */
+    footer { text-align: center; font-size: 14px; color: #003366; padding: 24px 0; }
+
+    /* Адаптив для мобильных */
+    @media(max-width:700px){ .profile{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- Облака -->
+  <div class="clouds">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
+    <div class="cloud cloud5"></div>
+  </div><div class="container">
+    <!-- Шапка -->
+    <header>
+      <img src="logo.jpg" alt="SKY project" class="logo">
+      <h1>SKY Project</h1>
+      <p>Инфографика для подростков 14–18 лет</p>
+    </header>
+
+    <!-- Блок обо мне -->
+    <section>
+      <div class="profile">
+        <img src="me.jpg" alt="Nano">
+        <div>
+          <h2>Привет, я Нано</h2>
+          <p>Мне 17 лет. Я обучаю инфографике подростков от 14 до 18 лет. Показываю простой и понятный путь, чтобы создавать красивые графики и визуальные материалы.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section>
+      <h2>Почему стоит учиться со мной</h2>
+      <div class="facts">
+        <div class="fact">Простые шаги для создания инфографики</div>
+        <div class="fact">Дружелюбная атмосфера без давления</div>
+        <div class="fact">Поддержка и обратная связь</div>
+        <div class="fact">Практика вместо пустой теории</div>
+      </div>
+    </section>
+
+    <!-- Обучение -->
+    <section class="course-preview">
+      <h2>Что есть в обучении</h2>
+      <p>Ты узнаешь, как работать с цветами, формами и визуальной подачей информации, чтобы создавать красивые графики.</p>
+      <img src="course.jpg" alt="Обучение инфографике">
+    </section>
+
+    <!-- Кнопка -->
+    <section class="cta">
+      <h2>Хочешь узнать больше?</h2>
+      <p>Все детали и общение в Telegram</p>
+      <a href="https://t.me/sky_infog" target="_blank">Перейти в Telegram</a>
+    </section>
+
+    <!-- Подвал -->
+    <footer>© Nano · SKY Project</footer>
+  </div>
+
+</body>
+</html>
